@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strona z JavaScriptem</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">O mnie</a>
+        <a href="#interests">Zainteresowania</a>
+        <a href="#photos">Zdjęcia</a>
+    </nav>
+
+    <section id="home">
+        <button id="alertButton">Kliknij mnie!</button>
+    </section>
+
+    <section id="about">
+        <p>To jest sekcja o mnie </p>
+    </section>
+
+    <section id="contact">
+        <p>To jest sekcja Kontakt.</p>
+    </section>
+
+    <section id="interests">
+        <p>To jest sekcja Zainteresowania.</p>
+    </section>
+
+    <section id="photos">
+        <p>To jest sekcja Zdjęcia.</p>
+    </section>
+
+    <div class="cookie-banner" id="cookieBanner">
+        Dla prawidłowego funkcjonowania strona używa plików cookies 
+        <button id="acceptCookies">Akceptuj</button>
+    </div>
+
+    <script>        
+        document.getElementById('alertButton').addEventListener('click', function() {
+            alert('Witaj na mojej stronie!');
+        });
+
+        const links = document.querySelectorAll('nav a');
+        const sections = document.querySelectorAll('section');
+
+        links.forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                sections.forEach(section => {
+                    section.style.display = section.id === targetId ? 'flex' : 'none';
+                });
+            });
+        });
+
+        document.getElementById('acceptCookies').addEventListener('click', function() {
+            document.getElementById('cookieBanner').style.display = 'none';
+        });
+    </script>
+</body>
+</html>
