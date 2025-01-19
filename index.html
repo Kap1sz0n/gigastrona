@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Strona z JavaScriptem</title>
     <link rel="stylesheet" href="style.css">
+   
 </head>
 <body>
     <nav>
@@ -12,6 +13,7 @@
         <a href="#about">O mnie</a>
         <a href="#interests">Zainteresowania</a>
         <a href="#photos">Zdjęcia</a>
+        <a href="#animation">Animacja</a>
     </nav>
 
     <section id="home">
@@ -19,7 +21,14 @@
     </section>
 
     <section id="about">
-        <p>To jest sekcja o mnie </p>
+        <div class="about-container">
+            <div class="about-text">
+                <p>To jest sekcja o mnie</p>
+            </div>
+            <div class="about-photo">
+                <img src="path/to/your/photo.jpg" alt="Moje zdjęcie">
+            </div>
+        </div>
     </section>
 
     <section id="contact">
@@ -27,15 +36,31 @@
     </section>
 
     <section id="interests">
-        <p>To jest sekcja Zainteresowania.</p>
+        <p class="interests-title"></p>
         <h1>Moje zainteresowania to prostowanie i cięcie drutu <br>
         Oraz okazjyjnie montowanie chłodnicy na trytytki
         </h1>
     </section>
 
     <section id="photos">
-        <p>To jest sekcja Zdjęcia.</p>
+        <div class="photo-frame">
+            <img src="path/to/photo1.jpg" alt="Zdjęcie 1">
+        </div>
+        <div class="photo-frame">
+            <img src="path/to/photo2.jpg" alt="Zdjęcie 2">
+        </div>
+        <div class="photo-frame">
+            <img src="path/to/photo3.jpg" alt="Zdjęcie 3">
+        </div>
     </section>
+
+    <section id="animation">
+        <p>Animacja</p>
+    </section>
+
+    <div class="slider-container">
+        <input type="range" min="1" max="3" value="1" id="backgroundSlider">
+    </div>
 
     <div class="cookie-banner" id="cookieBanner">
         Dla prawidłowego funkcjonowania strona używa plików cookies 
@@ -62,6 +87,17 @@
 
         document.getElementById('acceptCookies').addEventListener('click', function() {
             document.getElementById('cookieBanner').style.display = 'none';
+        });
+
+        document.getElementById('backgroundSlider').addEventListener('input', function() {
+            const value = this.value;
+            if (value == 1) {
+                document.body.style.background = 'linear-gradient(to right, #ff7e5f, #feb47b)';
+            } else if (value == 2) {
+                document.body.style.background = 'linear-gradient(to right, #6a11cb, #2575fc)';
+            } else if (value == 3) {
+                document.body.style.background = 'linear-gradient(to right, #43cea2, #185a9d)';
+            }
         });
     </script>
 </body>
