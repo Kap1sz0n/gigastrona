@@ -6,7 +6,7 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background: url(giphy.gif) no-repeat;
+    background-image: url("giphy.gif");
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -14,7 +14,7 @@ body {
     display: block;
     justify-content: center;
     position: absolute;
-    bottom: 2%;
+    bottom: 10px;
 }
 input[type="range"] {
     width: 300px;
@@ -67,7 +67,7 @@ nav {
 nav a {
     color: white;
     text-decoration: none;
-    margin: auto 5px;
+    margin: 0 15px;
     font-size: 18px;
 }
 nav a:hover {
@@ -175,7 +175,7 @@ button:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    /*background: url(giphy.gif) no-repeat center center/cover;*/
+    background: url(giphy.gif) no-repeat center center/cover;
     position: relative;
     color: white;
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
@@ -200,11 +200,4 @@ button:hover {
     font-size: 1.5rem;
     margin-bottom: 10px;
     color: #333;
-}
-#clock {
-    font-size: 34px;
-    font-weight: bold;
-    color: white;
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
-
 }
