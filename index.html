@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Strona z JavaScriptem</title>
     <link rel="stylesheet" href="style.css">
-   
 </head>
 <body>
     <nav>
@@ -23,10 +22,10 @@
     <section id="about">
         <div class="about-container">
             <div class="about-text">
-                <p>To jest sekcja o mnie</p>
+                <p>Mam na imie Krystian jestem uczniem klasy 4 technikum o profilu informatycznym </p>
             </div>
             <div class="about-photo">
-                <img src="path/to/your/photo.jpg" alt="Moje zdjęcie">
+                <img src="ja.jpg" alt="Moje zdjęcie">
             </div>
         </div>
     </section>
@@ -38,24 +37,38 @@
     <section id="interests">
         <p class="interests-title"></p>
         <h1>Moje zainteresowania to prostowanie i cięcie drutu <br>
-        Oraz okazjyjnie montowanie chłodnicy na trytytki
+        Oraz okazyjne montowanie chłodnicy na trytytki
         </h1>
     </section>
 
     <section id="photos">
-        <div class="photo-frame">
-            <img src="path/to/photo1.jpg" alt="Zdjęcie 1">
-        </div>
-        <div class="photo-frame">
-            <img src="path/to/photo2.jpg" alt="Zdjęcie 2">
-        </div>
-        <div class="photo-frame">
-            <img src="path/to/photo3.jpg" alt="Zdjęcie 3">
+        <div class="gallery-container">
+            <div>
+                <div class="gallery-title">Galeria 1</div>
+                <div class="gallery" id="gallery1">
+                    <img src="path/to/photo1.jpg" alt="Zdjęcie 1">
+                </div>
+                <button onclick="showNextImage('gallery1', ['path/to/photo1.jpg', 'path/to/photo2.jpg', 'path/to/photo3.jpg'])">Dalej</button>
+            </div>
+            <div>
+                <div class="gallery-title">Galeria 2</div>
+                <div class="gallery" id="gallery2">
+                    <img src="path/to/photo4.jpg" alt="Zdjęcie 4">
+                </div>
+                <button onclick="showNextImage('gallery2', ['path/to/photo4.jpg', 'path/to/photo5.jpg', 'path/to/photo6.jpg'])">Dalej</button>
+            </div>
+            <div>
+                <div class="gallery-title">Galeria 3</div>
+                <div class="gallery" id="gallery3">
+                    <img src="path/to/photo7.jpg" alt="Zdjęcie 7">
+                </div>
+                <button onclick="showNextImage('gallery3', ['path/to/photo7.jpg', 'path/to/photo8.jpg', 'path/to/photo9.jpg'])">Dalej</button>
+            </div>
         </div>
     </section>
 
     <section id="animation">
-        <p>Animacja</p>
+        <div id="animatedText">kr<span class="highlight">y</span>pol.online</div>
     </section>
 
     <div class="slider-container">
@@ -63,10 +76,18 @@
     </div>
 
     <div class="cookie-banner" id="cookieBanner">
-        Dla prawidłowego funkcjonowania strona używa plików cookies 
-        <button id="acceptCookies">Akceptuj</button>
+        <div>
+            Dla prawidłowego funkcjonowania strona używa plików cookies. Zapoznaj się z naszą 
+            <a href="https://example.com/cookie-policy" target="_blank">polityką plików cookies</a>.
+            <br>jeżeli nie zgadzasz się na wykorzystanie plików cookies, opuść stronę lub zmien ustawienia przeglądarki.
+        </div>
+        <div>
+            <button id="acceptCookies">Akceptuj</button>
+        </div>
     </div>
+   <!-- <button id="musicButton">▶</button>
 
+    <audio id="audioPlayer" src="path/to/your/music.mp3"></audio>-->
     <script>        
         document.getElementById('alertButton').addEventListener('click', function() {
             alert('Witaj na mojej stronie!');
@@ -92,13 +113,45 @@
         document.getElementById('backgroundSlider').addEventListener('input', function() {
             const value = this.value;
             if (value == 1) {
-                document.body.style.background = 'linear-gradient(to right, #ff7e5f, #feb47b)';
+                document.body.style.background = 'linear-gradient(to right, #447555, #8bfcb2)';
             } else if (value == 2) {
                 document.body.style.background = 'linear-gradient(to right, #6a11cb, #2575fc)';
             } else if (value == 3) {
                 document.body.style.background = 'linear-gradient(to right, #43cea2, #185a9d)';
             }
         });
+        const highlightLetter = document.querySelector('.highlight');
+
+        function blinkHighlight() {
+            highlightLetter.style.filter = 'brightness(30%)';
+            setTimeout(() => {
+                highlightLetter.style.filter = 'brightness(70%)';
+            }, 2500);
+        }
+
+        setInterval(blinkHighlight, 5000);
+        const musicButton = document.getElementById('musicButton');
+        const audioPlayer = document.getElementById('audioPlayer');
+        audioPlayer.src = "https://www.youtube.com/watch?v=oWW5TLrrbNo";
+/*
+     musicButton.addEventListener('click', () => {
+            if (audioPlayer.paused) {
+                audioPlayer.play();
+                musicButton.textContent = '⏸';
+            } else {
+                audioPlayer.pause();
+                musicButton.textContent = '▶';
+            }
+        });
+
+*/
+function showNextImage(galleryId, images) {
+        const gallery = document.getElementById(galleryId);
+        const currentImage = gallery.querySelector('img');
+        const currentIndex = images.indexOf(currentImage.src.split('/').pop());
+        const nextIndex = (currentIndex + 1) % images.length;
+        currentImage.src = images[nextIndex];
+    }
     </script>
 </body>
 </html>
