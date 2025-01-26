@@ -15,15 +15,7 @@
         <a href="#animation">Animacja</a>
     </nav>
 
-    <section id="home">
-        <div id="clock"></div>
 
-
-
-
-
-
-    </section>
     <section id="about">
         <div class="about-container">
             <div class="about-text">
@@ -63,7 +55,7 @@
     </section>
 
     <div class="slider-container">
-        <input type="range" min="1" max="4" value="1" id="backgroundSlider">
+        <input type="range" min="1" max="3" value="1" id="backgroundSlider">
     </div>
 
     <div class="cookie-banner" id="cookieBanner">
@@ -102,15 +94,10 @@
         document.getElementById('backgroundSlider').addEventListener('input', function() {
             const value = this.value;
             if (value == 1) {
-                document.body.style.background = "url('giphy.gif')";
-                doucment.body.style.backgroundSize = 'cover';
-                document.body.style.backgroundRepeat = 'no-repeat';
-            } else if (value == 2) {
                 document.body.style.background = 'linear-gradient(to right, #447555, #8bfcb2)';
-            } else if (value == 3) {
+            } else if (value == 2) {
                 document.body.style.background = 'linear-gradient(to right, #6a11cb, #2575fc)';
-            }
-            else if (value == 4) {
+            } else if (value == 3) {
                 document.body.style.background = 'linear-gradient(to right, #43cea2, #185a9d)';
             }
         });
@@ -132,16 +119,7 @@
             nextIndex = (currentIndex + 1) % images.length;
             currentImage.src = images[nextIndex];
         }
-     function updateClock() {
-            const now = new Date();
-            const hours = String(now.getHours()).padStart(2, '0');
-            const minutes = String(now.getMinutes()).padStart(2, '0');
-            const seconds = String(now.getSeconds()).padStart(2, '0');
-            const timeString = `${hours}:${minutes}:${seconds}`;
-            document.getElementById('clock').textContent = timeString;
-        }
-        setInterval(updateClock, 1000);
-        updateClock(); 
+    
     </script>
 </body>
 </html>
