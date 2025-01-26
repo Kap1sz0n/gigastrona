@@ -6,11 +6,15 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #3f3f3f;
+    background-image: url("giphy.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .slider-container {
     display: block;
     justify-content: center;
+    position: absolute;
+    bottom: 10px;
 }
 input[type="range"] {
     width: 300px;
