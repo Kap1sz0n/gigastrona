@@ -15,9 +15,6 @@
         <a href="#animation">Animacja</a>
     </nav>
 
-    <section id="home">
-        <button id="alertButton">Kliknij mnie!</button>
-    </section>
 
     <section id="about">
         <div class="about-container">
@@ -87,10 +84,10 @@
     </div>
   
     <script>        
-        document.getElementById('alertButton').addEventListener('click', function() {
+      /*  document.getElementById('alertButton').addEventListener('click', function() {
             alert('Witaj na mojej stronie!');
         });
-
+*/
         const links = document.querySelectorAll('nav a');
         const sections = document.querySelectorAll('section');
 
@@ -130,13 +127,14 @@
         setInterval(blinkHighlight, 5000);
      
 
-function showNextImage(galleryId, images) {
+/*function showNextImage(galleryId, images) {
         const gallery = document.getElementById(galleryId);
         const currentImage = gallery.querySelector('img');
         const currentIndex = images.indexOf(currentImage.src.split('/').pop());
         const nextIndex = (currentIndex + 1) % images.length;
         currentImage.src = images[nextIndex];
     }
+    */
     </script>
 </body>
 </html>
