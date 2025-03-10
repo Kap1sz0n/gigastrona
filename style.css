@@ -208,3 +208,12 @@ button:hover {
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
 
 }
+audio {
+    border: 2px solid rgb(72, 185, 70) ;
+    border-radius: 50px;
+
+}
+
+audio::-webkit-media-controls-panel {
+    background-color: rgb(36, 192, 96);
+}
