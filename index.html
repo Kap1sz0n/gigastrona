@@ -13,7 +13,7 @@
         <a href="#interests">Zainteresowania</a>
         <a href="#photos">Zdjęcia</a>
         <a href="#animation">Animacja</a>
-        <a href="#dzwieki">Dzwięki</a>
+        <a href="#sound">Dzwięki</a>
     </nav>
 
     <section id="home">
@@ -61,11 +61,41 @@
         <input type="range" min="1" max="4" value="1" id="backgroundSlider">
     </div>
         <section id="sound">
-        <div id="music">
-            <div id="players">
-                <audio src="fubu.mp3" controls></audio><br>
-                <audio src="djkrośniewicz2.mp3" controls></audio><br>
-            </div>
+            <div class="player-container">
+                <div class="player">
+                    <p>Wiatr</p>
+                    <audio controls>
+                        <source src="wiatr.mp3" type="audio/mp3">
+                        Twoja przeglądarka nie obsługuje odtwarzacza audio.
+                    </audio>
+                </div>
+                <div class="player">
+                    <p>Pies</p>
+                    <audio controls>
+                        <source src="pies.mp3" type="audio/mp3">
+                        Twoja przeglądarka nie obsługuje odtwarzacza audio.
+                    </audio>
+                </div>
+                <div class="player">
+                    <p>Deszcz</p>
+                    <audio controls>
+                        <source src="deszcz.mp3" type="audio/mp3">
+                        Twoja przeglądarka nie obsługuje odtwarzacza audio.
+                    </audio>
+                </div>
+                <div class="player">
+                    <p>Ptak</p>
+                    <audio controls>
+                        <source src="ptak.mp3" type="audio/mp3">
+                        Twoja przeglądarka nie obsługuje odtwarzacza audio.
+                    </audio>
+                </div>
+                <div class="player">
+                    <p>Wszystko razem</p>
+                    <audio controls>
+                        <source src="wszystko_razem.mp3" type="audio/mp3">
+                        Twoja przeglądarka nie obsługuje odtwarzacza audio.
+                    </audio>
         </div>
     </section>
 
@@ -143,6 +173,19 @@
         }
         setInterval(updateClock, 1000);
         updateClock(); 
+        document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', function(event) {
+        event.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
+        
+        // Ukryj lub pokaż slider w zależności od sekcji
+        if (targetId === 'sound') {
+            document.querySelector('.slider-container').style.display = 'none';
+        } else {
+            document.querySelector('.slider-container').style.display = 'block';
+        }
+    });
+});
     </script>
 </body>
 </html>

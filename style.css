@@ -208,12 +208,16 @@ button:hover {
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
 
 }
-audio {
-    border: 2px solid rgb(72, 185, 70) ;
-    border-radius: 50px;
 
+.player-container {
+    text-align: center;
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: inline-block;
 }
+#sound.slider-container{
 
-audio::-webkit-media-controls-panel {
-    background-color: rgb(36, 192, 96);
+    display: none;
 }
